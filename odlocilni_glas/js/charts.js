@@ -1,28 +1,34 @@
+let seatChartInstance;
+let probChartInstance;
 
-export function drawSeatChart(data){
+export function drawSeatChart(data) {
+  const ctx = document.getElementById("seatChart");
 
-const ctx=document.getElementById("seatChart")
+  if (seatChartInstance) {
+    seatChartInstance.destroy();
+  }
 
-new Chart(ctx,{
-type:"bar",
-data:{
-labels:Object.keys(data),
-datasets:[{label:"Seats",data:Object.values(data)}]
+  seatChartInstance = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: Object.keys(data),
+      datasets: [{ label: "Seats", data: Object.values(data) }],
+    },
+  });
 }
-})
 
-}
+export function drawProbChart(data) {
+  const ctx = document.getElementById("probChart");
 
-export function drawProbChart(data){
+  if (probChartInstance) {
+    probChartInstance.destroy();
+  }
 
-const ctx=document.getElementById("probChart")
-
-new Chart(ctx,{
-type:"bar",
-data:{
-labels:Object.keys(data),
-datasets:[{label:"Average Seats (Monte Carlo)",data:Object.values(data)}]
-}
-})
-
+  probChartInstance = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: Object.keys(data),
+      datasets: [{ label: "Average Seats (Monte Carlo)", data: Object.values(data) }],
+    },
+  });
 }
