@@ -1,8 +1,7 @@
-
 export async function loadPolls(){
 
 const response = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQpWjzIcpLf9PoJ-Q80b4o3RC-sSbVozv18WwS-waLURUetX6spuAJdf2pLRZLFbvA0-66bGzifkFPB/pub?output=csv")
-
+const text = await response.text()
 const rows=text.split("\n").slice(1)
 
 let polls=[]
