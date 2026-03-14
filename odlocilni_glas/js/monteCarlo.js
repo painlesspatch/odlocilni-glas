@@ -27,12 +27,16 @@ simulated[p]=Math.max(0,v+noise)
 
 const seats=allocateSeats(simulated)
 
-Object.entries(seats).forEach(([p,s])=>{
-
-seatTotals[p]=(seatTotals[p]||0)+s
-
+Object.entries(votes).forEach(([p,v])=>{
+  const noise=randomNormal()*1.5
+  simulated[p]=Math.max(0,v+noise)
 })
 
+let total=Object.values(simulated).reduce((a,b)=>a+b,0)
+
+Object.keys(simulated).forEach(p=>{
+  simulated[p]=simulated[p]/total*100
+})
 }
 
 let averages={}
