@@ -1,0 +1,15 @@
+
+body{
+font-family:Arial;
+margin:40px;
+background:#f5f5f5;
+}
+
+.slider-row{
+margin-bottom:10px;
+}
+
+canvas{
+max-width:900px;
+margin-top:30px;
+}
